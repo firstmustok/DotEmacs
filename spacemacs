@@ -37,8 +37,9 @@ values."
      emacs-lisp
      markdown
 
-     ;; util 
+     ;; util
      chinese
+     ranger
      ;; eyebrowse
 
      (shell :variables
@@ -289,10 +290,28 @@ you should place you code here."
   (setq indent-tabs-mode nil)
   ;; mode-line
   ; (setq powerline-default-separator 'arrow)
-  (evilified-state-evilify-map neotree-mode-map
-    :mode neotree-mode
-    :bindings
-    (kbd "o") 'spacemacs/neotree-expand-or-open)
+
+  (remove-hook 'emacs-lisp-mode-hook 'auto-compile-mode)
+
+  ; neotree
+  (add-hook 'neotree-mode-hook
+            (lambda ()
+              ;; define key to vim nerdtreee
+              (evilified-state-evilify-map neotree-mode-map
+                :mode neotree-mode
+                :bindings
+                (kbd "q") 'neotree-hide
+                (kbd "o") 'neotree-enter)
+
+              ;; variable
+              (setq neo-hidden-regexp-list (append neo-hidden-regexp-list '("\\.o$" "\\.so$")))
+              (setq neo-show-hidden-files nil)
+              )
+            )
+
+  ; personal yas-snippet
+  (add-to-list 'yas-snippet-dirs "~/Application/config/DotEmacs/snippets")
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
