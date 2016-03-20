@@ -301,16 +301,23 @@ you should place you code here."
                 :mode neotree-mode
                 :bindings
                 (kbd "q") 'neotree-hide
+                (kbd "u") 'neotree-select-up-node
                 (kbd "o") 'neotree-enter)
 
               ;; variable
-              (setq neo-hidden-regexp-list (append neo-hidden-regexp-list '("\\.o$" "\\.so$")))
+              ; (setq neo-hidden-regexp-list (append neo-hidden-regexp-list '("\\.o$" "\\.so$")))
+              (add-to-list 'neo-hidden-regexp-list "\\.o$")
+              (add-to-list 'neo-hidden-regexp-list "\\.so$")
               (setq neo-show-hidden-files nil)
               )
             )
 
   ; personal yas-snippet
   (add-to-list 'yas-snippet-dirs "~/Application/config/DotEmacs/snippets")
+
+  ; google translante
+  (setq google-translate-default-source-language "en")
+  (setq google-translate-default-target-language "zh-CN")
 
   )
 
