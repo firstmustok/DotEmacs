@@ -1,5 +1,6 @@
 #name : Generate Gfo template
 # key: ggfo
+# expand-env: ((yas-indent-line 'fixed))
 # --
 #include "gfo.h"
 

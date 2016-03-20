@@ -1,5 +1,6 @@
 #name : Generate Tfo template
 # key: gtfo
+# expand-env: ((yas-indent-line 'fixed))
 # --
 #include "tfo.h"
 

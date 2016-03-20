@@ -1,5 +1,6 @@
 #name : Generate cmd file for Auto Stock
 # key: gcmd
+# expand-env: ((yas-indent-line 'fixed))
 # --
 #include "platform/cmd/command.h"
 

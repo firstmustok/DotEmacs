@@ -1,5 +1,6 @@
 #name : Generate Risk Template 
 # key: grisk
+# expand-env: ((yas-indent-line 'fixed))
 # --
 #include "platform/risk/CRisk.h"
 

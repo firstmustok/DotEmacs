@@ -1,5 +1,6 @@
 #name : Generate pfo template
 # key: gpfo
+# expand-env: ((yas-indent-line 'fixed))
 # --
 #include "pfo.h"
 
