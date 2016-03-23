@@ -27,20 +27,20 @@ values."
      ;; lang
      auto-completion
      c-c++
-     org
      lua
      javascript
      ruby
      rust
 
      ;; better-defaults
+     org
      emacs-lisp
      markdown
 
      ;; util
      chinese
      ranger
-     ;; eyebrowse
+     eyebrowse
 
      (shell :variables
             shell-default-height 30
@@ -319,6 +319,10 @@ you should place you code here."
   (setq google-translate-default-source-language "en")
   (setq google-translate-default-target-language "zh-CN")
 
+  ;; For c++
+  (add-hook 'c++-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+
+  (global-evil-mc-mode 1)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
