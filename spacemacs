@@ -27,7 +27,8 @@ values."
      ;; lang
      auto-completion
      c-c++
-     org
+     java
+
      lua
      javascript
      ruby
@@ -36,6 +37,7 @@ values."
      ;; better-defaults
      emacs-lisp
      markdown
+     org
 
      ;; util
      chinese
@@ -123,7 +125,7 @@ values."
    ;; size to make separators look not too crappy.
    ;; dotspacemacs-default-font '("YaHei Consolas Hybrid" ;;"Source Code Pro"
    ;; dotspacemacs-default-font '("Inconsolata" ;;"Source Code Pro"
-   dotspacemacs-default-font '("Consolas for Powerline"
+   dotspacemacs-default-font '("Consolas for Powerline FixedD"
                                :size 12
                                :weight normal
                                :width normal
@@ -291,6 +293,8 @@ you should place you code here."
   ;; mode-line
   ; (setq powerline-default-separator 'arrow)
 
+  (global-evil-mc-mode 1)
+
   (remove-hook 'emacs-lisp-mode-hook 'auto-compile-mode)
 
   ; neotree
@@ -312,6 +316,19 @@ you should place you code here."
               )
             )
 
+  ; c-c++ mode
+  (add-hook 'c++-mode-hook
+            (lambda ()
+              (modify-syntax-entry ?_ "w")
+              ;; 
+              (evilified-state-evilify-map c++-mode-map
+                :mode c++-mode
+                :bindings
+                (kbd ":A") 'projectile-find-other-file
+                )
+              )
+            )
+
   ; personal yas-snippet
   (add-to-list 'yas-snippet-dirs "~/Application/config/DotEmacs/snippets")
 
@@ -319,6 +336,9 @@ you should place you code here."
   (setq google-translate-default-source-language "en")
   (setq google-translate-default-target-language "zh-CN")
 
+  ; for java
+  (setq eclim-eclipse-dirs "D:/Tools/eclipse-mars-4.5"
+        eclim-executable "D:/Tools/eclipse-mars-4.5/eclim.bat")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
