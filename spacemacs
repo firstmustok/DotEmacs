@@ -26,11 +26,14 @@ values."
 
      ;; lang
      auto-completion
+     html
      c-c++
      lua
      javascript
      ruby
      rust
+     ;R lang
+     ess
 
      ;; better-defaults
      org
@@ -277,7 +280,7 @@ you should place you code here."
   ;; show time
   (display-time-mode t)
 
-  (global-linum-mode t)
+  ; (global-linum-mode t)
   (setq user-mail-address "linux.whu@gmail.com")
 
   (define-key global-map (kbd "C-+") 'text-scale-increase)
@@ -321,8 +324,13 @@ you should place you code here."
 
   ;; For c++
   (add-hook 'c++-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+  (add-hook 'c-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
 
   (global-evil-mc-mode 1)
+
+  ;; set for js
+  (setq-default js-indent-level 2)
+  (setq-default js2-basic-offset 2)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
