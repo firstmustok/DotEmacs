@@ -33,6 +33,9 @@ values."
      javascript
      ruby
      rust
+     ess
+     html
+     react
 
      ;; better-defaults
      emacs-lisp
@@ -339,6 +342,38 @@ you should place you code here."
   ; for java
   (setq eclim-eclipse-dirs "D:/Tools/eclipse-mars-4.5"
         eclim-executable "D:/Tools/eclipse-mars-4.5/eclim.bat")
+
+  ; for ssh
+  (setq tramp-default-method "plink")
+
+  ;fro R
+  (setq inferior-R-program-name "D:/pf/R/R-3.0.0/bin/x64/Rterm.exe") 
+
+  ;temp file
+  (setq backup-directory-alist `((".*" . ,temporary-file-directory)))
+  (setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
+
+  (setq make-backup-files nil) ; stop creating backup~ files
+  (setq auto-save-default nil) ; stop creating #autosave# files
+  (setq create-lockfiles nil)
+
+  ; for js mode
+  (add-hook 'js-mode-hook  'emmet-mode)
+  (setq-default
+   ;; js2-mode
+   js2-basic-offset 2
+   ;; web-mode
+   css-indent-offset 2
+   web-mode-markup-indent-offset 2
+   web-mode-css-indent-offset 2
+   web-mode-code-indent-offset 2
+   web-mode-attr-indent-offset 2)
+
+  (with-eval-after-load 'web-mode
+    (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
+    (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
+    (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
