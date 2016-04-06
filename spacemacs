@@ -42,6 +42,8 @@ values."
 
      ;; util
      chinese
+    (chinese :variables chinese-default-input-method 'wubi)
+
      ranger
      eyebrowse
 
@@ -331,7 +333,8 @@ you should place you code here."
   ;; set for js
   (setq-default js-indent-level 2)
   (setq-default js2-basic-offset 2)
-  )
+
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
