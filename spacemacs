@@ -302,35 +302,35 @@ you should place you code here."
 
   ; neotree
   (add-hook 'neotree-mode-hook
-            (lambda ()
-              ;; define key to vim nerdtreee
-              (evilified-state-evilify-map neotree-mode-map
-                :mode neotree-mode
-                :bindings
-                (kbd "q") 'neotree-hide
-                (kbd "u") 'neotree-select-up-node
-                (kbd "o") 'neotree-enter)
+    (lambda ()
+      ;; define key to vim nerdtreee
+      (evilified-state-evilify-map neotree-mode-map
+        :mode neotree-mode
+        :bindings
+        (kbd "q") 'neotree-hide
+        (kbd "u") 'neotree-select-up-node
+        (kbd "o") 'neotree-enter)
 
-              ;; variable
-              ; (setq neo-hidden-regexp-list (append neo-hidden-regexp-list '("\\.o$" "\\.so$")))
-              (add-to-list 'neo-hidden-regexp-list "\\.o$")
-              (add-to-list 'neo-hidden-regexp-list "\\.so$")
-              (setq neo-show-hidden-files nil)
-              )
-            )
+      ;; variable
+      ; (setq neo-hidden-regexp-list (append neo-hidden-regexp-list '("\\.o$" "\\.so$")))
+      (add-to-list 'neo-hidden-regexp-list "\\.o$")
+      (add-to-list 'neo-hidden-regexp-list "\\.so$")
+      (setq neo-show-hidden-files nil)
+      )
+    )
 
   ; c-c++ mode
   (add-hook 'c++-mode-hook
-            (lambda ()
-              (modify-syntax-entry ?_ "w")
-              ;; 
-              (evilified-state-evilify-map c++-mode-map
-                :mode c++-mode
-                :bindings
-                (kbd ":A") 'projectile-find-other-file
-                )
-              )
-            )
+    (lambda ()
+      (modify-syntax-entry ?_ "w")
+      ;; 
+      (evilified-state-evilify-map c++-mode-map
+        :mode c++-mode
+        :bindings
+        (kbd ":A") 'projectile-find-other-file
+        )
+      )
+    )
 
   ; personal yas-snippet
   (add-to-list 'yas-snippet-dirs "~/Application/config/DotEmacs/snippets")
@@ -359,6 +359,14 @@ you should place you code here."
 
   ; for js mode
   (add-hook 'js-mode-hook  'emmet-mode)
+  (add-hook 'js2-mode-hook
+    (lambda()
+      (setq evil-shift-width 2)))
+  (add-hook 'web-mode-hook
+    (lambda ()
+      (setq evil-shift-width 2)))
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . web-mode))
+
   (setq-default
    ;; js2-mode
    js2-basic-offset 2
